@@ -5,6 +5,10 @@ EXPOSE 80
 FROM mcr.microsoft.com/dotnet/core/sdk:3.0-buster AS build
 WORKDIR /src
 COPY ["zero-width-api-docker.csproj", "zero-width-api-docker/"]
+
+RUN dir
+RUN dir zero-width-api-docker/
+
 RUN dotnet restore --configfile "Nuget.config" "zero-width-api-docker/zero-width-api-docker.csproj"
 COPY . .
 WORKDIR "/src/zero-width-api-docker"
