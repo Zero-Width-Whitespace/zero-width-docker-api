@@ -7,7 +7,6 @@ WORKDIR /src
 COPY . .
 
 RUN dir
-RUN dir zero-width-api-docker/
 
 RUN dotnet restore --configfile "zero-width-api-docker/Nuget.config" "zero-width-api-docker/zero-width-api-docker.csproj"
 COPY . .
