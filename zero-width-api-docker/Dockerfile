@@ -8,7 +8,7 @@ COPY . .
 
 RUN dir
 
-RUN dotnet restore --configfile "zero-width-api-docker/Nuget.config" "zero-width-api-docker/zero-width-api-docker.csproj"
+RUN dotnet restore --configfile "Nuget.config" "zero-width-api-docker.csproj"
 COPY . .
 WORKDIR "/src/zero-width-api-docker"
 RUN dotnet build "zero-width-api-docker.csproj" -c Release -o /app/build
