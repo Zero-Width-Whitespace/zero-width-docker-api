@@ -14,7 +14,7 @@
     <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="5.0.0" />
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="5.0.0" />
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="5.0.0" />
-    <PackageReference Include="ZeroWidthNuget" Version="1.0.0-CI-20200120-121254" />
+    <PackageReference Include="ZeroWidthNuget" Version="1.0.0-CI-20200121-121746" />
   </ItemGroup>
 
 </Project>
