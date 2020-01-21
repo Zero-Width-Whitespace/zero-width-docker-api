@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using System.ComponentModel.DataAnnotations;
 
 namespace ZeroWidthApi.Controllers
 {
@@ -15,7 +11,6 @@ namespace ZeroWidthApi.Controllers
     [Route("[action]")]
     public class EncodeDecodeController : ControllerBase
     {
-
         private readonly ILogger<EncodeDecodeController> _logger;
         private Coder _coder;
 
@@ -30,17 +25,6 @@ namespace ZeroWidthApi.Controllers
         }
 
         /// <summary>
-        /// Encode a string
-        /// </summary>
-        /// <param name="stringToEncode">The string to encode</param>
-        /// <returns>Result</returns>
-        [HttpPost]
-        public string Encode([Required]string stringToEncode)
-        {
-            return _coder.Encode(stringToEncode);
-        }
-        
-        /// <summary>
         /// Decode a string
         /// </summary>
         /// <param name="stringToDecode">The string to decode</param>
@@ -51,6 +35,15 @@ namespace ZeroWidthApi.Controllers
             return _coder.Decode(stringToDecode);
         }
 
-
+        /// <summary>
+        /// Encode a string
+        /// </summary>
+        /// <param name="stringToEncode">The string to encode</param>
+        /// <returns>Result</returns>
+        [HttpPost]
+        public string Encode([Required]string stringToEncode)
+        {
+            return _coder.Encode(stringToEncode);
+        }
     }
 }
