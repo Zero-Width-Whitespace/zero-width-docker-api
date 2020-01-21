@@ -16,6 +16,7 @@ variables:
 
 steps:
 - task: SonarCloudPrepare@1
+  name: 'Prepare_SonarCloud'
   inputs:
     SonarCloud: 'Kevins Sonarcloud'
     organization: 'zero-width-whitespace'
@@ -23,13 +24,24 @@ steps:
     projectKey: 'Zero-Width-Whitespace_zero-width-docker-api'
 
 - task: NuGetToolInstaller@1
+  name: 'Install_NuGet_Tool'
+
+- task: NuGetCommand@2
+  name: 'Nuget_Restore'
+  inputs:
+    command: 'restore'
+    restoreSolution: '**/*.sln'
+    feedsToUse: 'select'
+    vstsFeed: '030285f2-9ddf-4603-8fd3-7d2f5b4a3766/acb34b7f-6641-4c4f-a2ee-ff1c27d5f61d'
 - task: VSBuild@1
+  name: 'Visual_Studio_Build'
   inputs:
     solution: '**\*.sln'
     vsVersion: '16.0'
-    restoreNugetPackages: true
+    restoreNugetPackages: false
 
 - task: SonarCloudAnalyze@1
+  name: 'Analyze_SonarCloud'
 
 - task: Docker@2
   name: 'Docker_Build_and_Publish'
