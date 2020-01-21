@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.0</TargetFramework>
     <RootNamespace>zero_width_api_docker</RootNamespace>
-    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerDefaultTargetOS>Windows</DockerDefaultTargetOS>
     <StartupObject>zero_width_api_docker.Program</StartupObject>
   </PropertyGroup>
   <PropertyGroup>
