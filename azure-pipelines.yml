@@ -15,6 +15,14 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
+- task: SonarCloudPrepare@1
+  inputs:
+    SonarCloud: 'Kevins Sonarcloud'
+    organization: 'zero-width-whitespace'
+    scannerMode: 'CLI'
+    configMode: 'file'
+
+- task: SonarCloudAnalyze@1
 - task: NuGetToolInstaller@1
 
 - task: Docker@2
