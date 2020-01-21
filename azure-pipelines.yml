@@ -19,11 +19,17 @@ steps:
   inputs:
     SonarCloud: 'Kevins Sonarcloud'
     organization: 'zero-width-whitespace'
-    scannerMode: 'CLI'
-    configMode: 'file'
+    scannerMode: 'MSBuild'
+    projectKey: 'Zero-Width-Whitespace_zero-width-docker-api'
+
+- task: NuGetToolInstaller@1
+- task: VSBuild@1
+  inputs:
+    solution: '**\*.sln'
+    vsVersion: '16.0'
+    restoreNugetPackages: true
 
 - task: SonarCloudAnalyze@1
-- task: NuGetToolInstaller@1
 
 - task: Docker@2
   name: 'Docker_Build_and_Publish'
