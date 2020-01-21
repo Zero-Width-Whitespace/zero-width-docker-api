@@ -30,7 +30,7 @@ namespace ZeroWidthApi.Controllers
         /// <param name="stringToDecode">The string to decode</param>
         /// <returns>Result</returns>
         [HttpPost]
-        public string Decode([Required]string stringToDecode)
+        public string Decode([Required][FromForm]string stringToDecode)
         {
             return _coder.Decode(stringToDecode);
         }
@@ -41,7 +41,7 @@ namespace ZeroWidthApi.Controllers
         /// <param name="stringToEncode">The string to encode</param>
         /// <returns>Result</returns>
         [HttpPost]
-        public string Encode([Required]string stringToEncode)
+        public string Encode([Required][FromForm]string stringToEncode)
         {
             return _coder.Encode(stringToEncode);
         }
